@@ -23,5 +23,6 @@ jobs:
         with:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}     
-      - name: List all containers
+        run: uname -a
+      - name: Uname
         run: uname -a
