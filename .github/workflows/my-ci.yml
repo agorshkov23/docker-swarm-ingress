@@ -24,5 +24,3 @@ jobs:
           arch: ${{ matrix.arch }}
           distro: ${{ matrix.distro }}     
         run: uname -a
-      - name: Uname
-        run: uname -a
