@@ -3,7 +3,7 @@ name: Docker Swarm Ingress CI
 on:
   push:
     branches:
-    - aarch64
+    # - aarch64
     - master
     tags:
     - v*
