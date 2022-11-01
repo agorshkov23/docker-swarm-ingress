@@ -60,13 +60,14 @@ jobs:
         docker push $IMAGE_ID
         docker push $IMAGE_ID_TAG
     - name: docker login
-      if: ${{ github.repository_owner == 'garutilorenzo' }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      if: ${{ github.repository_owner == 'garutilorenzo' }}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: docker push mysql-innodb-cluster image
+      if: ${{ github.repository_owner == 'garutilorenzo' }}
       run: |
         IMAGE_ID=${{ secrets.DOCKER_USER }}/$IMAGE_NAME:latest
         IMAGE_ID_TAG=${{ secrets.DOCKER_USER }}/$IMAGE_NAME:$NGINX_VERSION
