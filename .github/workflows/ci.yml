@@ -3,7 +3,7 @@ name: Docker Swarm Ingress CI
 on:
   push:
     branches:
-    # - aarch64
+    - aarch64
     - master
     tags:
     - v*
@@ -60,6 +60,7 @@ jobs:
         docker push $IMAGE_ID
         docker push $IMAGE_ID_TAG
     - name: docker login
+      if: ${{ github.repository_owner == 'garutilorenzo' }}
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
