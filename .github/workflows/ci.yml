@@ -25,13 +25,18 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        architecture: [amd64, arm64, aarch64]
+#        architecture: [amd64, arm64, aarch64]
 
     steps:
+    # https://docs.docker.com/build/ci/github-actions/multi-platform/
+    - name: Checkout
+      uses: actions/checkout@v4
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
-      
-    - uses: actions/checkout@v2
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
     
 #    - name: Set up QEMU (for ${{ matrix.architecture }} emulation)
 #      if: matrix.architecture != 'amd64'
