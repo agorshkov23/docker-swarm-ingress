@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - master
+    - 'aarch64-2'
     tags:
     - v*
     paths:
@@ -20,8 +21,20 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
 
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        architecture: [amd64, arm64]
+
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Set up QEMU (for ARM64 emulation)
+      if: matrix.architecture == 'arm64'
+      run: |
+        sudo apt-get install -y qemu-user-static
+        docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
     - name: Build the Docker image
       run: docker-compose -f .docker-compose.yml-ci build --pull --no-cache
     - name: Bringup the environment
