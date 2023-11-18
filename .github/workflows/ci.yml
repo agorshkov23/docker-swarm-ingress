@@ -30,7 +30,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     
-    - name: Set up QEMU (for ARM64 emulation)
+    - name: Set up QEMU (for ${{ matrix.architecture }} emulation)
       if: matrix.architecture != 'amd64'
       run: |
         sudo apt-get install -y qemu-user-static
