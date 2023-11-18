@@ -4,7 +4,7 @@ on:
   push:
     branches:
     - master
-    - aarch64-2
+    - 'aarch64-2'
     tags:
     - v*
     paths:
