@@ -47,7 +47,7 @@ jobs:
       with:
         context: nginx-ingress
         platforms: linux/amd64,linux/arm64
-        tags: ${{ github.repository_owner }}/docker-swarm-ingress:lllatest
+        tags: user/docker-swarm-ingress:latest
         push: true
 
     # - name: Exit
