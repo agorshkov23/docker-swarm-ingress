@@ -51,7 +51,7 @@ jobs:
       with:
         context: nginx-ingress
         platforms: linux/amd64,linux/arm64
-        tags: ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME:latest
+        tags: ${{ github.repository_owner }}/$IMAGE_NAME:latest
 
     - name: Exit
       run: exit 0
