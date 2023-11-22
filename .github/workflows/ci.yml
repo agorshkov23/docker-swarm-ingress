@@ -47,7 +47,7 @@ jobs:
       with:
         context: nginx-ingress
         platforms: linux/amd64,linux/arm64
-        tags: user/docker-swarm-ingress:latest
+        tags: ghcr.io/user/docker-swarm-ingress:latest
         push: true
 
     # - name: Exit
