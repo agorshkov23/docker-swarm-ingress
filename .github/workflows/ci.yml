@@ -26,7 +26,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        architecture: [amd64, arm64]
+        # architecture: [amd64, arm64]
+        architecture: [arm64]
 
     steps:
     # https://docs.docker.com/build/ci/github-actions/multi-platform/
@@ -52,6 +53,7 @@ jobs:
         context: nginx-ingress
         platforms: linux/amd64,linux/arm64
         tags: ${{ github.repository_owner }}/docker-swarm-ingress:lllatest
+        push: true
 
     - name: Exit
       run: exit 0
